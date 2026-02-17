@@ -1,0 +1,49 @@
+---
+import "../styles/navbar.css";
+---
+
+
+<nav class="navbar">
+  <div class="container navbar__content">
+
+<a href="/" class="navbar__logo">
+  <i class="fa-solid fa-cart-shopping"></i>
+  Minimarket
+</a>
+
+
+    <ul class="navbar__menu">
+      <li><a href="/">INICIO</a></li>
+      <li><a href="/productos">PRODUCTOS</a></li>
+      <li><a href="/nosotros">NOSOTROS</a></li>
+
+      <li class="nav-cart">
+        <a href="/carrito" class="cart-link" aria-label="Carrito">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </a>
+      </li>
+
+    <!-- cierres únicos, eliminados duplicados -->
+<script>
+function updateCartBadge() {
+  let carrito = [];
+  try {
+    carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+  } catch { carrito = []; }
+  var badge = document.getElementById('cart-badge');
+  if (badge) {
+    let totalItems = Array.isArray(carrito) ? carrito.reduce((sum, p) => sum + (p.cantidad || 1), 0) : 0;
+    badge.textContent = totalItems;
+  }
+}
+if (typeof window !== 'undefined') {
+  window.addEventListener('DOMContentLoaded', updateCartBadge);
+  window.addEventListener('storage', updateCartBadge);
+}
+</script>
+
+    </ul>
+
+  </div>
+</nav>

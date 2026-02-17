@@ -1,0 +1,72 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'success';
+  size?: 'sm' | 'md' | 'lg';
+  block?: boolean;
+  class?: string;
+  href?: string;
+  [key: string]: any;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  block = false,
+  class: className,
+  href,
+  ...rest
+} = Astro.props;
+
+const variants: Record<string, string> = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  outline: 'btn-outline-primary',
+  ghost: 'btn-link',
+  danger: 'btn-danger',
+  success: 'btn-success',
+};
+
+const sizes: Record<string, string> = {
+  sm: 'btn-sm',
+  md: '',
+  lg: 'btn-lg',
+};
+
+const classes = [
+  'btn',
+  variants[variant] || variants.primary,
+  sizes[size] || sizes.md,
+  block ? 'd-grid w-100' : '',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag href={href} class={classes} {...rest}>
+  <slot />
+</Tag>
+
+<style>
+  /* Puedes agregar estilos personalizados aquí si Bootstrap no es suficiente */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Efecto hover suave */
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+</style>

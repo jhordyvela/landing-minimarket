@@ -1,0 +1,193 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import "../styles/productos.css";
+import "../styles/index.css";
+---
+
+<MainLayout>
+  <div class="productos-layout">
+    <aside class="productos-filtro">
+      <h2>Filtrar productos</h2>
+      <input
+        type="text"
+        class="filtro-buscar"
+        placeholder="Buscar productos..."
+      />
+      <div class="filtro-categorias">
+        <label><input type="checkbox" checked /> Bebidas</label><br />
+        <label><input type="checkbox" checked /> Snacks</label><br />
+        <label><input type="checkbox" checked /> Abarrotes</label><br />
+        <label><input type="checkbox" checked /> Lácteos</label><br />
+        <label><input type="checkbox" checked /> Limpieza</label><br />
+        <label><input type="checkbox" checked /> Panadería</label><br />
+        <label><input type="checkbox" checked /> Congelados</label><br />
+        <label><input type="checkbox" checked /> Cuidado Personal</label><br />
+        <label><input type="checkbox" checked /> Mascotas</label>
+      </div>
+      <button class="filtro-btn">Filtrar</button>
+    </aside>
+    <section class="productos-grid">
+      <h1 class="productos-title">Todos los productos</h1>
+      <div class="productos-list">
+        <!-- Producto ejemplo -->
+        <div class="producto-card">
+          <img
+            src="https://images.unsplash.com/photo-1648156253473-1154aac22425?q=80&w=735&auto=format&fit=crop"
+            alt="Bebidas"
+          />
+          <div class="producto-info">
+            <h3>Bebidas</h3>
+            <p>Gaseosas, jugos y bebidas refrescantes.</p>
+            <span class="producto-precio">S/ 5.00</span>
+            <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Bebidas', precio: 5.00 });">Añadir al carrito</button>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <img
+            src="https://images.unsplash.com/photo-1622405207562-735fa49ff7f7?q=80&w=1170&auto=format&fit=crop"
+            alt="Snacks"
+          />
+          <div class="producto-info">
+            <h3>Snacks</h3>
+            <p>Galletas, chocolates y productos rápidos.</p>
+            <span class="producto-precio">S/ 3.50</span>
+            <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Snacks', precio: 3.50 });">Añadir al carrito</button>
+          </div>
+        </div>
+        <div class="producto-card">
+          <img
+            src="https://images.unsplash.com/photo-1543168256-418811576931?q=80&w=1170&auto=format&fit=crop"
+            alt="Abarrotes"
+          />
+          <div class="producto-info">
+            <h3>Abarrotes</h3>
+            <p>Arroz, azúcar, fideos, aceite y más.</p>
+            <span class="producto-precio">S/ 7.00</span>
+            <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Abarrotes', precio: 7.00 });">Añadir al carrito</button>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <img
+            src="https://images.unsplash.com/photo-1506617420156-8e4536971650?q=80&w=1723&auto=format&fit=crop"
+            alt="Lácteos"
+          />
+          <div class="producto-info">
+            <h3>Lácteos</h3>
+            <p>Leche, yogurt, queso y mantequilla.</p>
+            <span class="producto-precio">S/ 4.00</span>
+            <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Lácteos', precio: 4.00 });">Añadir al carrito</button>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <img
+            src="https://images.unsplash.com/photo-1646533683740-670d8ee20fff?q=80&w=1170&auto=format&fit=crop"
+            alt="Limpieza"
+          />
+          <div class="producto-info">
+            <h3>Limpieza</h3>
+            <p>Detergente, lejía, desinfectantes.</p>
+            <span class="producto-precio">S/ 6.00</span>
+            <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Limpieza', precio: 6.00 });">Añadir al carrito</button>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <img
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1170&auto=format&fit=crop"
+            alt="Panadería"
+          />
+          <div class="producto-info">
+            <h3>Panadería</h3>
+            <p>Pan, galletas, kekes y más.</p>
+            <span class="producto-precio">S/ 2.50</span>
+            <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Panadería', precio: 2.50 });">Añadir al carrito</button>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <img
+            src="https://images.unsplash.com/photo-1708190489461-688f6e6f06a9?q=80&w=612&auto=format&fit=crop"
+            alt="Congelados"
+          />
+          <div class="producto-info">
+            <h3>Congelados</h3>
+            <p>Helados, nuggets, papas y más.</p>
+            <span class="producto-precio">S/ 8.00</span>
+            <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Congelados', precio: 8.00 });">Añadir al carrito</button>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <img
+            src="https://images.unsplash.com/photo-1658684860796-b52128d5bdd6?q=80&w=1170&auto=format&fit=crop"
+            alt="Cuidado Personal"
+          />
+          <div class="producto-info">
+            <h3>Cuidado Personal</h3>
+            <p>Jabón, shampoo, pasta dental.</p>
+            <span class="producto-precio">S/ 5.50</span>
+            <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Cuidado Personal', precio: 5.50 });">Añadir al carrito</button>
+          </div>
+        </div>
+
+  <div class="producto-card">
+  <img 
+    src="https://plus.unsplash.com/premium_photo-1726761692986-6bcde87fc2b8?q=80&w=1101&auto=format&fit=crop"
+    alt="Mascotas"
+  />
+  <div class="producto-info">
+    <h3>Mascotas</h3>
+    <p>Alimento y accesorios básicos.</p>
+    <span class="producto-precio">S/ 9.00</span>
+    <button class="producto-btn" onclick="agregarAlCarrito({ nombre: 'Mascotas', precio: 9.00 });">Añadir al carrito</button>
+  </div>
+</div>
+
+
+      </div>
+    </section>
+  </div>
+</MainLayout>
+<script>
+// @ts-nocheck
+window.agregarAlCarrito = function(producto) {
+  let carrito = [];
+  try {
+    carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+  } catch { carrito = []; }
+  // Buscar si ya existe el producto por nombre
+  let idx = carrito.findIndex(p => p.nombre === producto.nombre);
+  let cantidad = 1;
+  if (idx !== -1) {
+    // Si existe, aumentar cantidad
+    carrito[idx].cantidad = (carrito[idx].cantidad || 1) + 1;
+    cantidad = carrito[idx].cantidad;
+  } else {
+    producto.cantidad = 1;
+    carrito.push(producto);
+  }
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+  // Actualizar badge si existe
+  let totalItems = carrito.reduce((sum, p) => sum + (p.cantidad || 1), 0);
+  if (document.getElementById('cart-badge')) {
+    document.getElementById('cart-badge').textContent = totalItems;
+  }
+  // Mostrar alerta visual con cantidad
+  let alerta = document.createElement('div');
+  alerta.textContent = `¡${cantidad} añadido(s) al carrito!`;
+  alerta.style.position = 'fixed';
+  alerta.style.top = '20px';
+  alerta.style.right = '20px';
+  alerta.style.background = '#16a34a';
+  alerta.style.color = '#fff';
+  alerta.style.padding = '12px 20px';
+  alerta.style.borderRadius = '8px';
+  alerta.style.zIndex = 9999;
+  alerta.style.boxShadow = '0 2px 8px #0003';
+  document.body.appendChild(alerta);
+  setTimeout(() => alerta.remove(), 1200);
+}
+</script>

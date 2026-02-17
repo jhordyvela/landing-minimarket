@@ -1,0 +1,43 @@
+---
+import "../styles/carrito.css";
+
+---
+
+<section class="cart-section">
+  <h2 class="cart-title">Shopping Cart</h2>
+  <div class="cart-table-wrapper">
+    <table class="table table-success table-striped cart-table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="carrito-lista">
+        <tr><td colspan="5">Cargando...</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cart-summary">
+    <div class="cart-totals">
+      <div><span>Subtotal</span><span id="cart-subtotal">S/ 0.00</span></div>
+      <div class="cart-total-row"><span>Total</span><span id="cart-total">S/ 0.00</span></div>
+    </div>
+    <a
+      class="carrito-comprar"
+      id="carrito-comprar"
+      href="#"
+      target="_blank"
+      rel="noopener"
+      style="pointer-events: none; opacity: 0.6;"
+    >
+      Proceder a WhatsApp
+    </a>
+  </div>
+</section>
+
+
+

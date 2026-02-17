@@ -1,0 +1,59 @@
+.footer {
+  background: #1f774b;
+  color: white;
+  margin-top: 60px;
+}
+
+.footer__content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer__box h3,
+.footer__box h4 {
+  margin-bottom: 10px;
+}
+
+.footer__box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__box a {
+  text-decoration: none;
+  color: #cbd5e1;
+}
+
+.footer__box a:hover {
+  color: #22c55e;
+}
+
+.footer__bottom {
+  text-align: center;
+  padding: 15px;
+  background: #22c55e;
+  font-size: 14px;
+}
+
+/* 🔥 Hace que el footer baje siempre */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* el main crece y empuja el footer abajo */
+main {
+  flex: 1;
+}
+.footer-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+  object-fit: contain;
+}

@@ -1,0 +1,115 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import CarritoComponent from '../components/Carrito.astro';
+import '../styles/carrito.css';
+import '../styles/index.css';
+---
+
+<MainLayout>
+  <div class="container py-4">
+    <CarritoComponent />
+  </div>
+</MainLayout>
+
+<!-- Script para renderizar el carrito en el cliente -->
+<script lang="ts">
+  function renderCarrito() {
+    const lista = document.getElementById('carrito-lista');
+    const btnComprar = /** @type {HTMLAnchorElement} */ (
+      document.getElementById('carrito-comprar')
+    );
+    const subtotalDiv = document.getElementById('cart-subtotal');
+    const totalDiv = document.getElementById('cart-total');
+
+    if (!lista || !btnComprar || !subtotalDiv || !totalDiv) return;
+
+    let carrito = [];
+    try {
+      carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    } catch {
+      carrito = [];
+    }
+    if (!carrito.length) {
+      lista.innerHTML = '<tr><td colspan="5">Tu carrito está vacío.</td></tr>';
+      subtotalDiv.textContent = 'S/ 0.00';
+      totalDiv.textContent = 'S/ 0.00';
+      btnComprar.style.pointerEvents = 'none';
+      btnComprar.style.opacity = '0.6';
+      btnComprar.href = '#';
+      return;
+    }
+    let html = '';
+    let total = 0;
+    carrito.forEach((p, i) => {
+      const cantidad = p.cantidad || 1;
+      const subtotal = p.precio * cantidad;
+      html += `<tr>
+      <td>${p.nombre}</td>
+      <td>S/ ${p.precio.toFixed(2)}</td>
+      <td>
+        <button onclick=\"cambiarCantidad(${i},-1)\" style=\"margin-right:4px;padding:2px 8px;\">-</button>
+        <span style=\"min-width:24px;display:inline-block;text-align:center;\">${cantidad}</span>
+        <button onclick=\"cambiarCantidad(${i},1)\" style=\"margin-left:4px;padding:2px 8px;\">+</button>
+      </td>
+      <td>S/ ${subtotal.toFixed(2)}</td>
+      <td><button onclick=\"eliminarDelCarrito(${i})\">Eliminar</button></td>
+    </tr>`;
+      total += subtotal;
+    });
+    lista.innerHTML = html;
+    subtotalDiv.textContent = 'S/ ' + total.toFixed(2);
+    totalDiv.textContent = 'S/ ' + total.toFixed(2);
+    const productosMsg = carrito
+      .map(
+        (p) => `${p.nombre} x${p.cantidad || 1} (S/ ${(p.precio * (p.cantidad || 1)).toFixed(2)})`
+      )
+      .join(', ');
+    btnComprar.href = `https://wa.me/51900395227?text=Hola!%20Quiero%20comprar:%20${encodeURIComponent(productosMsg)}%20Total:%20S/%20${total.toFixed(2)}`;
+    btnComprar.style.pointerEvents = 'auto';
+    btnComprar.style.opacity = '1';
+  }
+
+  window.cambiarCantidad = function (idx, delta) {
+    let carrito = [];
+    try {
+      carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    } catch {
+      carrito = [];
+    }
+    if (!carrito[idx]) return;
+    carrito[idx].cantidad = (carrito[idx].cantidad || 1) + delta;
+    if (carrito[idx].cantidad < 1) carrito[idx].cantidad = 1;
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    renderCarrito();
+    // Actualizar badge si existe
+    if (document.getElementById('cart-badge')) {
+      let totalItems = Array.isArray(carrito)
+        ? carrito.reduce((sum, p) => sum + (p.cantidad || 1), 0)
+        : 0;
+      document.getElementById('cart-badge').textContent = totalItems;
+    }
+  };
+
+  window.eliminarDelCarrito = function (idx) {
+    let carrito = [];
+    try {
+      carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    } catch {
+      carrito = [];
+    }
+    carrito.splice(idx, 1);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    renderCarrito();
+    // Actualizar badge si existe
+    if (document.getElementById('cart-badge')) {
+      let totalItems = Array.isArray(carrito)
+        ? carrito.reduce((sum, p) => sum + (p.cantidad || 1), 0)
+        : 0;
+      document.getElementById('cart-badge').textContent = totalItems;
+    }
+  };
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', renderCarrito);
+  }
+</script>
