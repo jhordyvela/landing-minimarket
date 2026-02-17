@@ -1,40 +1,217 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import "../styles/index.css";
+import MainLayout from '../layouts/MainLayout.astro';
+import '../styles/index.css';
 ---
 
 <MainLayout>
-  
+  <section class="hero-nosotros">
+    <div class="hero-content">
+      <h1 class="hero-title">Nuestra Historia</h1>
+      <p class="hero-subtitle">Más que un minimarket, somos tu familia.</p>
+    </div>
+  </section>
 
-  <section class="info-section">
-    <div class="info-container">
-      <h2 class="info-title">Nuestra Historia</h2>
-      <p class="info-desc">Desde nuestros inicios, Gustosi Minimarket ha sido sinónimo de confianza y calidad. Nos esforzamos cada día para ofrecerte lo mejor, apoyando a productores locales y brindando una experiencia de compra única.</p>
-      <div class="info-cards">
-        <div class="info-card">
-          <div class="info-icon" style="background:#e6f4ea;"><i class="fa-solid fa-hand-holding-heart"></i></div>
-          <div>
-            <div class="info-card-title">Compromiso</div>
-            <div class="info-card-desc">Nos comprometemos con la satisfacción de cada cliente, escuchando y mejorando constantemente.</div>
-          </div>
+  <section class="bio-section container">
+    <div class="bio-grid">
+      <div class="bio-image-container">
+        <!-- Placeholder image. In a real scenario, use a team photo -->
+        <img
+          src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1074&auto=format&fit=crop"
+          alt="Equipo Gustosi Minimarket"
+          class="bio-image"
+        />
+        <div class="bio-badge">
+          <span class="years">10+</span>
+          <span class="label">Años de<br />Experiencia</span>
         </div>
-        <div class="info-card">
-          <div class="info-icon" style="background:#e6eaf7;"><i class="fa-solid fa-leaf"></i></div>
-          <div>
-            <div class="info-card-title">Productos Frescos</div>
-            <div class="info-card-desc">Seleccionamos cuidadosamente cada producto para garantizar frescura y calidad.</div>
+      </div>
+      <div class="bio-content">
+        <h2 class="bio-heading">Pasión por lo <span class="highlight">Bueno</span></h2>
+        <p class="bio-text">
+          Todo comenzó con un sueño simple: traer los mejores productos a nuestra comunidad. Lo que
+          empezó como una pequeña tienda de barrio se ha convertido en <strong
+            >Gustosi Minimarket</strong
+          >, un lugar donde la calidad y la calidez se encuentran.
+        </p>
+        <p class="bio-text">
+          Creemos que hacer las compras no debería ser una tarea, sino una experiencia. Por eso,
+          seleccionamos cuidadosamente cada fruta, cada bebida y cada snack, pensando siempre en ti
+          y en tu familia.
+        </p>
+        <div class="bio-values">
+          <div class="value-item">
+            <i class="fa-solid fa-heart value-icon"></i>
+            <span>Pasión</span>
           </div>
-        </div>
-        <div class="info-card">
-          <div class="info-icon" style="background:#e6f4ea;"><i class="fa-solid fa-users"></i></div>
-          <div>
-            <div class="info-card-title">Cercanía</div>
-            <div class="info-card-desc">Somos parte de tu barrio y queremos verte crecer junto a nosotros.</div>
+          <div class="value-item">
+            <i class="fa-solid fa-star value-icon"></i>
+            <span>Calidad</span>
+          </div>
+          <div class="value-item">
+            <i class="fa-solid fa-users value-icon"></i>
+            <span>Comunidad</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    /* Hero Section */
+    .hero-nosotros {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=1974&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+      border-radius: 0 0 2rem 2rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    /* Bio Section */
+    .bio-section {
+      padding: 2rem 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .bio-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .bio-image-container {
+      position: relative;
+    }
+
+    .bio-image {
+      width: 100%;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .bio-image:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .bio-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: #16a34a;
+      color: white;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3);
+      text-align: center;
+      transform: rotate(2deg);
+    }
+
+    .bio-badge .years {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .bio-badge .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Content */
+    .bio-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .highlight {
+      color: #16a34a;
+      position: relative;
+      display: inline-block;
+    }
+
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: rgba(22, 163, 74, 0.2);
+      z-index: -1;
+    }
+
+    .bio-text {
+      color: #4b5563;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .bio-values {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .value-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .value-icon {
+      font-size: 1.5rem;
+      color: #16a34a;
+      background: #dcfce7;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .value-item span {
+      font-weight: 600;
+      color: #374151;
+      font-size: 0.9rem;
+    }
+  </style>
 
   <section class="categorias-section" style="background:#f8fafc;">
     <div class="container-categorias">
