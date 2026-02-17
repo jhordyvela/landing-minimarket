@@ -1,120 +1,113 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import "../styles/index.css";
+import MainLayout from '../layouts/MainLayout.astro';
+import '../styles/index.css';
 ---
 
-
 <MainLayout>
-    <!-- HERO PROFESIONAL -->
-  <section class="home-section hero-bg">
+  <!-- Hero Section Professional -->
+  <section class="hero-home">
     <div class="hero-overlay"></div>
-    <div class="container-home" style="position: relative; z-index: 2;">
-      <h1 class="hero-title"> <span class="brand"></span></h1>
+    <div class="hero-content container">
+      <h1 class="hero-title">Calidad que <span class="text-gradient">Enamora</span></h1>
+      <p class="hero-subtitle">
+        Descubre la experiencia Gustosi. Productos seleccionados, frescura garantizada y la atención
+        que te mereces, todo en un solo lugar.
+      </p>
+      <div class="hero-buttons">
+        <a href="/productos" class="btn-primary">Ver Catálogo</a>
+        <a href="/nosotros" class="btn-secondary">Conócenos</a>
+      </div>
     </div>
   </section>
 
-  <!-- INFORMACIÓN DESTACADA -->
-  <section class="info-section">
-    <div class="info-container">
-      <h2 class="info-title">Entérate más sobre Gustosi</h2>
-      <p class="info-desc">Conoce nuestra información más a detalle</p>
-      <div class="info-cards">
-        <div class="info-card">
-          <div class="info-icon" style="background:#e6f4ea;"><i class="fa-solid fa-store"></i></div>
-          <div>
-            <div class="info-card-title">Ubícanos</div>
-            <div class="info-card-desc">Conoce cuál es nuestro punto más cercano a tu ubicación.</div>
-            <a href="#" class="info-btn">VER UBICACIONES</a>
-          </div>
+  <!-- Beneficios / Features -->
+  <section class="features-section container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-truck-fast"></i>
         </div>
-        <div class="info-card">
-          <div class="info-icon" style="background:#e6eaf7;"><i class="fa-solid fa-circle-question"></i></div>
-          <div>
-            <div class="info-card-title">¿Consultas o dudas?</div>
-            <div class="info-card-desc">Resolvemos todas las preguntas que tengas sobre productos o el servicio en el centro de ayuda.</div>
-            <a href="#" class="info-btn">IR AL CENTRO DE AYUDA</a>
-          </div>
+        <h3>Delivery Rápido</h3>
+        <p>Llevamos tu pedido a la puerta de tu casa en tiempo récord.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-leaf"></i>
         </div>
-        <div class="info-card">
-          <div class="info-icon" style="background:#e6f4ea;"><i class="fa-solid fa-gift"></i></div>
-          <div>
-            <div class="info-card-title">Regala un eGift Card</div>
-            <div class="info-card-desc">¿Se acerca una fecha especial y todavía no decides qué regalar? Deja que ellos elijan.</div>
-            <a href="#" class="info-btn">REGALA UN EGIFT CARD</a>
-          </div>
+        <h3>100% Fresco</h3>
+        <p>Garantizamos la frescura de nuestras frutas y verduras.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <h3>Atención 24/7</h3>
+        <p>Estamos aquí para resolver tus dudas en cualquier momento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consejos / Blog Section -->
+  <section class="info-blog-section container">
+    <h3 class="section-title-center">Novedades y Consejos</h3>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-image">
+          <img
+            src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1074&auto=format&fit=crop"
+            alt="Elegir frutas"
+          />
+        </div>
+        <div class="blog-content">
+          <h4>Cómo elegir las mejores frutas</h4>
+          <p>
+            Descubre los secretos para identificar la madurez perfecta y llevar siempre lo mejor a
+            tu mesa.
+          </p>
+          <a href="#" class="btn-dark">Leer más aquí</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-image">
+          <img
+            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop"
+            alt="Recetas saludables"
+          />
+        </div>
+        <div class="blog-content">
+          <h4>Recetas saludables en 15 min</h4>
+          <p>Ideas prácticas y deliciosas para cocinar rápido sin sacrificar sabor ni nutrición.</p>
+          <a href="#" class="btn-dark">Leer más aquí</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-image">
+          <img
+            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2013&auto=format&fit=crop"
+            alt="Sostenibilidad"
+          />
+        </div>
+        <div class="blog-content">
+          <h4>Nuestro compromiso sostenible</h4>
+          <p>
+            Conoce cómo trabajamos con agricultores locales para reducir nuestra huella de carbono.
+          </p>
+          <a href="#" class="btn-dark">Leer más aquí</a>
         </div>
       </div>
     </div>
   </section>
 
+  
 
-
-    <!-- Categorías circulares -->
-    <div class="ofertas-categorias">
-      <h3 class="ofertas-top">Lo mas Top <span>😎</span></h3>
-      <p class="ofertas-subtop">¡Aprovecha lo más buscado!</p>
-      <div class="ofertas-circles">
-        <div class="oferta-circle">
-          <img src="/img1.jpg" alt="Deportivas" />
-          <span>Deportivas</span>
-        </div>
-        <div class="oferta-circle">
-          <img src="/img3.jpg" alt="Sandalias" />
-          <span>Sandalias</span>
-        </div>
-        <div class="oferta-circle">
-          <img src="/img3.jpg" alt="Urbanas" />
-          <span>Urbanas</span>
-        </div>
-        <div class="oferta-circle">
-          <img src="/img1.jpg" alt="De Fiesta" />
-          <span>De Fiesta</span>
-        </div>
-        <div class="oferta-circle">
-          <img src="/img3.jpg" alt="Estiletos" />
-          <span>Estiletos</span>
-        </div>
-        <div class="oferta-circle">
-          <img src="/img3.jpg" alt="De Moda" />
-          <span>De Moda</span>
-        </div>
-        <div class="oferta-circle">
-          <img src="/img1.jpg" alt="Escolar" />
-          <span>Escolar</span>
-        </div>
-        <div class="oferta-circle">
-          <img src="/img3.jpg" alt="Carteras" />
-          <span>Carteras</span>
-        </div>
-      </div>
-    </div>
-   
-
-  <!-- CATEGORÍAS DESTACADAS -->
-  <section class="categorias-section">
-    <div class="container-categorias">
-      <h2 class="cat-title">Categorías Populares</h2>
-      <div class="categorias-grid">
-        <div class="cat-card">
-          <i class="fa-solid fa-bottle-water cat-icon"></i>
-          <span>Bebidas</span>
-        </div>
-        <div class="cat-card">
-          <i class="fa-solid fa-cookie-bite cat-icon"></i>
-          <span>Snacks</span>
-        </div>
-        <div class="cat-card">
-          <i class="fa-solid fa-bag-shopping cat-icon"></i>
-          <span>Abarrotes</span>
-        </div>
-        <div class="cat-card">
-          <i class="fa-solid fa-cheese cat-icon"></i>
-          <span>Lácteos</span>
-        </div>
-      </div>
+  <!-- Banner Promocional -->
+  <section class="promo-banner">
+    <div class="promo-content container">
+      <h2>¡Ofertas de Locura!</h2>
+      <p>Hasta 30% de descuento en productos seleccionados esta semana.</p>
+      <a href="/productos" class="btn-white">Aprovechar Ofertas</a>
     </div>
   </section>
 
-
+ 
 </MainLayout>
-                    
